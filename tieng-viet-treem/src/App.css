@@ -85,3 +85,29 @@ h1 {
 footer {
   font-size: 1rem;
 }
+
+.topic-list {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px 0 10px 0;
+}
+
+.topic-list button {
+  background: #fffbe7;
+  border: 2px solid #43c6ac;
+  border-radius: 14px;
+  padding: 10px 22px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-family: inherit;
+  color: #43c6ac;
+  font-weight: bold;
+  transition: background 0.2s, border 0.2s, color 0.2s;
+}
+
+.topic-list button.selected {
+  background: #43c6ac;
+  color: #fff;
+  border: 2px solid #ff6f00;
+}
