@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wheel Name - Vòng quay tên</title>
+    <meta name="description" content="Vòng quay tên: nhập danh sách và quay chọn ngẫu nhiên." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app__header">
+        <h1>Vòng quay tên</h1>
+        <div class="header__actions">
+          <button id="btn-fullscreen" title="Toàn màn hình">⤢</button>
+          <a id="btn-export" href="#" download="names.json" title="Xuất danh sách">⬇</a>
+          <label class="toggle">
+            <input type="checkbox" id="chk-remove" />
+            <span>Loại khỏi danh sách sau khi trúng</span>
+          </label>
+        </div>
+      </header>
+
+      <main class="app__main">
+        <section class="panel">
+          <div class="panel__group">
+            <label for="txt-names">Danh sách tên (mỗi dòng một tên)</label>
+            <textarea id="txt-names" placeholder="Ví dụ:\nLan\nHùng\nMinh\n..." spellcheck="false"></textarea>
+          </div>
+          <div class="panel__row">
+            <button id="btn-shuffle">Trộn</button>
+            <button id="btn-clear" class="danger">Xóa hết</button>
+            <input type="file" id="file-import" accept="application/json,text/plain" hidden />
+            <button id="btn-import">Nhập</button>
+          </div>
+          <p class="hint">Mẹo: Dán danh sách từ Excel/Google Sheets, mỗi tên một dòng.</p>
+        </section>
+
+        <section class="stage">
+          <div class="wheel-wrap">
+            <canvas id="wheel" aria-label="Vòng quay"></canvas>
+            <div class="pointer" aria-hidden="true">▼</div>
+          </div>
+          <div class="controls">
+            <button id="btn-spin" class="primary">Quay!</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="app__footer">
+        <span>Made with ❤️</span>
+      </footer>
+    </div>
+
+    <div id="winner-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="modal__backdrop"></div>
+      <div class="modal__dialog">
+        <h2>Chúc mừng!</h2>
+        <div class="winner" id="winner-name">Tên</div>
+        <div class="modal__actions">
+          <button id="btn-close-modal" class="secondary">Đóng</button>
+          <button id="btn-spin-again" class="primary">Quay tiếp</button>
+        </div>
+      </div>
+      <canvas id="confetti"></canvas>
+    </div>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
